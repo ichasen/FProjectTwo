@@ -1,18 +1,27 @@
-Player player1,player2;
+//Player player1,player2;
 String winner;
 public void setup() {
   size(1000,800);
 }
 public void draw() {
-  background(255);
-  fill(139,0,0);
+  background(0,255,0);
+  //fill(139,0,0);
   text(frameRate, 20, 20);
+  /*
   rect(0,0,20,20);
   rect(0,600,20,20);
   rect(600,0,20,20);
   rect(600,600,20,20);
+  */
+  rect(0,800,900,100);
 }
 
+public void display(){
+  fill(
+
+public class Hitbox{
+  
+/*
 public class Pitch{
   int speed;
   public Pitch(int s){
@@ -56,3 +65,4 @@ public class Player{
    
  }
 }
+*/
