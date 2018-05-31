@@ -18,10 +18,10 @@
     rect(400,400,20,20);
     rect(0,600,700,100);
     p.display();
-    p.throwPitch();
     m.display();
     m.throwPitch();
     p.setSpeed();
+    p.throwPitch();
     hitboxCoordinates = p.keyPressed();
     int result = checkCoordinates(hitboxCoordinates);
     if (result == 0){
@@ -122,11 +122,8 @@
       s = 5;
     }
     public int getSpeed(int cor){
-      if ((cor > 231 && cor < 282) || (cor > 433 && cor < 484)){
-        return 1 * s;
-      }
       if ((cor >= 282 && cor < 318) || (cor >= 398 && cor < 434)){
-        return 2 * s;
+        return  2 * s;
       }
       if ((cor >= 318 && cor < 347) || (cor >= 369 && cor < 398)){
         return 3 * s;
@@ -134,7 +131,9 @@
       if (cor >= 347 && cor < 369){
         return 4 * s;
       }
-      return s;
+      else{
+        return s;
+      }
     }
     public void throwPitch(){
       x += s;
