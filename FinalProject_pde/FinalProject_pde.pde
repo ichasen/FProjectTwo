@@ -11,20 +11,44 @@
     size(700,700);
   }
     public void draw() {
-        background(255);
-        fill(0,139,0);
-        text(frameRate, 20, 20);
+      //Puke green background
+        background(0,255,0);
+        //fill(0,139,0);
+        
+        
+        textSize(35);
+        text(frameRate, 20, 40);
+        
+        //Bases:
+        
+        fill(255);
+        //Northwest
         rect(0,0,20,20);
+        //Southwest
         rect(0,400,20,20);
+        //Northeast
         rect(400,0,20,20);
+        //Southeast
         rect(400,400,20,20);
-        rect(0,600,700,100);
+        
+        //Hitbox:
+        
+        //Strike leftbound
+        fill(255,0,0);
+        rect(0,600,231,100);
+        
+        //Single leftbound
+        fill(20,255,20);
+        rect(232,600,281,100);
+        
+        //rect(0,600,700,100);
         p.display();
         m.display();
         m.throwPitch();
         p.throwPitch();
         meterCoordinates = m.keyPressed();
         int ans = checkPitchCors(meterCoordinates);
+        
         if (m.isKeyPressed()){
           if (ans == 0){
             p.setSpeed(10);
@@ -148,10 +172,7 @@
       throwPitch();
     }
     public boolean isKeyPressed(){
-      if (keyPressed() >= 0){
-        return true;
-      }
-      return false;
+      return (keyPressed() >= 0);
     }
     public int keyPressed(){
       if (key == 'p'){
