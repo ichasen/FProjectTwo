@@ -7,6 +7,8 @@
  
   String winner;
   int numStrikes = 0;
+  int baseNumber;
+  int score;
   public void setup() {
     size(700,700);
   }
@@ -45,6 +47,7 @@
         p.display();
         m.display();
         m.throwPitch();
+        m.getMoving();
         p.throwPitch();
         meterCoordinates = m.keyPressed();
         int ans = checkPitchCors(meterCoordinates);
@@ -80,17 +83,21 @@
         }
         if (result == 1){
           text ("Single!", 50, 50);
+          baseNumber += 1;
         }
         if (result == 2){
           text("Double!", 50, 50);
+          baseNumber += 2;
         }
         if (result == 3){
           text("Triple!", 50,50);
+          baseNumber += 3;
         }
         if (result == 4){
           text("Home run!",50, 50);
+          baseNumber += 4;
         }
-     
+       println(getScore());
     }
     public int checkCoordinates(int cor){
       /* Values:
@@ -138,6 +145,10 @@
       return 0;
      
       }
+      public int getScore(){
+        score = baseNumber / 4;
+        return score;
+      }
  
   public class PitchMeter{
     int x, y, speed;
@@ -183,6 +194,11 @@
     }
     public int getY(){
       return y;
+    }
+    public void getMoving(){
+      if (key == '0'){
+        speed = 5;
+      }
     }
   }
  
