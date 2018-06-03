@@ -14,11 +14,9 @@
   }
     public void draw() {
       //Puke green background
-        background(0,255,0);
+        background(0,200,0);
         //fill(0,139,0);
-        
-        
-        textSize(35);
+        textSize(50);
         text(frameRate, 20, 40);
         
         //Bases:
@@ -78,26 +76,26 @@
         hitboxCoordinates = p.keyPressed();
         int result = checkCoordinates(hitboxCoordinates);
         if (result == 0){
-          text ("Strike!", 50, 50);
+          text ("Strike!", 200, 200);
           numStrikes++;
         }
         if (result == 1){
-          text ("Single!", 50, 50);
+          text ("Single!", 200, 200);
           baseNumber += 1;
         }
         if (result == 2){
-          text("Double!", 50, 50);
+          text("Double!", 200, 200);
           baseNumber += 2;
         }
         if (result == 3){
-          text("Triple!", 50,50);
+          text("Triple!", 200,200);
           baseNumber += 3;
         }
         if (result == 4){
           text("Home run!",50, 50);
           baseNumber += 4;
         }
-       println(getScore());
+       text( "Your Score is: " + getScore(),100,100);
     }
     public int checkCoordinates(int cor){
       /* Values:
