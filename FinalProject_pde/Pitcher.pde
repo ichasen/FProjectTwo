@@ -1,5 +1,10 @@
 public abstract class Pitcher{
   
+  //Each pitcher has their own type of pitch.
+  private boolean doesRebound; //Determines whether the pitch meter goes back and forth or not.  (Curveball)
+  private int speed; //How fast the pitch will be considered.
+  
+  
   //Each pitcher has its own color.
   private int redVal;
   private int greenVal;
@@ -11,11 +16,22 @@ public abstract class Pitcher{
   private int[] goldenZone; //Yellow
   private int[] tooStrongZone;
   
+  private String name; //Name of pitcher
+  
+  //Uses their doesRebound and speed
+  public abstract void doPitch(){
+  }
+  
+  public void setName(String className, String name){
+    this.name = className + " " + name;
+  }
+  
   public void setColor(int r, int g, int b){
     redVal = r;
     greenVal = g;
     blueVal = b;
   }
+  
   
   public Pitcher(int[] weakCoors, int[] regularCoors, int[] goldenCoors, int[] strongCoors){
     for (int i = 0; i < 2; i++){
@@ -25,5 +41,7 @@ public abstract class Pitcher{
       tooStrongZone[i] = strongCoors[i];
     }
   }
+  
+  
   
 }
