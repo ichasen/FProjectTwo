@@ -7,8 +7,9 @@ public class CurvePitcher extends Pitcher{
   
   public CurvePitcher(){
     setCoors(weakCoors, normalCoors, goldenCoors, strongCoors);
-    setColor(139, 69, 19);
+    setColor(139, 69, 19); //Brown
     setSpeed(35);
+    setName("Conakry");
   }
   
   public void doPitch(){
