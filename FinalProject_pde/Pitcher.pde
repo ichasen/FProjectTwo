@@ -16,14 +16,14 @@ public abstract class Pitcher{
   private int[] goldenZone; //Yellow
   private int[] tooStrongZone;
   
+  private String pitcherType;
   private String name; //Name of pitcher
   
   //Uses their doesRebound and speed
-  public abstract void doPitch(){
-  }
+  public abstract void doPitch();
   
-  public void setName(String className, String name){
-    this.name = className + " " + name;
+  public void setName(String name){
+    this.name = this.getClass().getSimpleName() + " " + name;
   }
   
   public void setColor(int r, int g, int b){
@@ -32,15 +32,26 @@ public abstract class Pitcher{
     blueVal = b;
   }
   
+  public color getColor(){
+    return color(redVal,greenVal,blueVal);
+  }
   
-  public Pitcher(int[] weakCoors, int[] regularCoors, int[] goldenCoors, int[] strongCoors){
+  public void setSpeed(int speed){
+    this.speed = speed;
+  }
+  public void setCoors(int[] wCoors, int[] rCoors, int[] gCoors, int[] sCoors){
     for (int i = 0; i < 2; i++){
-      weakZone[i] = weakCoors[i];
-      regularZone[i] = regularCoors[i];
-      goldenZone[i] = goldenCoors[i];
-      tooStrongZone[i] = strongCoors[i];
+      weakZone[i] = wCoors[i];
+      regularZone[i] = rCoors[i];
+      goldenZone[i] = gCoors[i];
+      tooStrongZone[i] = sCoors[i];
     }
   }
+  public String getPitcherType(){
+    return pitcherType;
+  }
+  
+  
   
   
   
