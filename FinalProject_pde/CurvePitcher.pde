@@ -9,7 +9,12 @@ public class CurvePitcher extends Pitcher{
     setCoors(weakCoors, normalCoors, goldenCoors, strongCoors);
     setColor(139, 69, 19); //Brown
     setSpeed(35);
-    setName("Conakry");
+    setPitcherType('c');
+    setName("Curved Conakry");
+  }
+  
+  public void setName(String nombre){
+    name = nombre;
   }
   
   public void doPitch(){
