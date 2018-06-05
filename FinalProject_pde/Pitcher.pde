@@ -17,16 +17,19 @@ public abstract class Pitcher{
   
   //PitcherType: What the game uses to identify pitcher.
   //Name: Public name of Pitcher
-  private int pitcherType;
-  private String name;
+  private char pitcherType;
+  public String name;
   
   //What color the pitcher's skin is:
   private color pitcherColor;
   
   public abstract void doPitch();
   
-  public abstract void setName();
-  
+  public abstract void setName(String name);
+
+  public void setPitcherType(char x){
+    pitcherType = x;
+  }
   public color getColor(){
     return pitcherColor;
   }
