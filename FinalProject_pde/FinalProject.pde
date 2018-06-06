@@ -3,6 +3,8 @@
 //Runner r = new Runner();
 
 Base[] bases = new Base[4];
+HitterMeter hMeter;
+HitterBall hBall;
 
 public void setup(){
   size(700,700);
@@ -10,6 +12,8 @@ public void setup(){
   bases[1] = new Base(2,410, 10); //Northeast
   bases[2] = new Base(3,10,10); //Northwest
   bases[3] = new Base(4,10,410); //Southwest
+  hMeter = new HitterMeter('a');
+  hBall = new HitterBall(hMeter);
 }
 
 public void draw(){
@@ -19,9 +23,7 @@ public void draw(){
   for (int i = 0; i < 4; i++){
     bases[i].display();
   }
-  HitterMeter hMeter = new HitterMeter('a');
   hMeter.display();
-  HitterBall hBall = new HitterBall(hMeter);
   hBall.throwPitch();
   hBall.display();
 }
@@ -44,5 +46,3 @@ public class Base{
   }
   
 }
-
-

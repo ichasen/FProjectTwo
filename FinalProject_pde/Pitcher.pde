@@ -25,7 +25,9 @@ public abstract class Pitcher{
   
   public abstract void doPitch();
   
-  public abstract void setName(String name);
+  public void setName(String name){
+    this.name = name;
+  }
 
   public void setPitcherType(char x){
     pitcherType = x;
@@ -51,7 +53,7 @@ public abstract class Pitcher{
     }
   }
   
-  public int getPitcherType(){
+  public char getPitcherType(){
     return pitcherType;
   }
 }
