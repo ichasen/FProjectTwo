@@ -9,10 +9,10 @@ public class FastPitcher extends Pitcher{
     setCoors(weakCoors, normalCoors, goldenCoors, strongCoors);
     //setColor(PEACH);
     setSpeed(35);
-    setName("Funafuti");
+    setName("Speedy Serengeti");
   }
   
   public void doPitch(){
   }
-  
+
 }
