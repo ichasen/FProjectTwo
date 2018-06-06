@@ -11,9 +11,10 @@
   int numStrikes = 0;
   int baseNumber;
   int score;
-  public void setup() {
+  /*public void setup() {
     size(700,700);
   }
+  
     public void draw() {
       //NOT puke green background
         background(10,103,0);
@@ -101,6 +102,7 @@
         r.startRunning();
        text( "Your Score is: " + getScore(),100,100);
     }
+    */
     public int checkCoordinates(int cor){
       /* Values:
       Strike : 0
