@@ -11,7 +11,9 @@
   int numStrikes = 0;
   int baseNumber;
   int score;
-  /*public void setup() {
+  HitterMeter hMeter;
+  HitterBall hBall;
+  public void setup() {
     size(700,700);
   }
   
@@ -99,10 +101,12 @@
           baseNumber += 4;
         }
         r.setOutcome();
+        r.doTheHitting();
         r.startRunning();
+        r.running();
+        r.continueRunning();
        text( "Your Score is: " + getScore(),100,100);
     }
-    */
     public int checkCoordinates(int cor){
       /* Values:
       Strike : 0
@@ -260,207 +264,4 @@
     public void setSpeed(int newSpeed){
       s = newSpeed;
     }
-}
-public class Runner{
-  int x,y,r,xspeed,yspeed;
-  int result = p.keyPressed();
-  String outcome;
-  public Runner(){
-    x = 10;
-    y = 10;
-    r = 10;
-    xspeed = 0;
-    yspeed = 5;
-  }
-  void running(){
-   x += xspeed;
-   y += yspeed;
-   checkBases();
-  }
-  void checkBases(){
-    if (outcome.equals("Single")){
-      if (whosOnFirst()){
-         xspeed = 5;
-         yspeed = 0;
-         if (whatsOnSecond()){
-           xspeed = 0;
-         }
-      }
-      else if (whatsOnSecond()){
-        yspeed = -5;
-        xspeed = 0;
-        if (iDontKnowsOnThird()){
-          yspeed = 0;
-        }
-      }
-      else if (iDontKnowsOnThird()){
-        xspeed = -5;
-        yspeed = 0;
-        if (isHome()){
-          xspeed = 0;
-        }
-      }
-      else{
-        yspeed = 5;
-        xspeed = 0;
-        if (whosOnFirst()){
-          yspeed = 0;
-        }
-      }
-    }
-    if (outcome.equals("Double")){
-      if (whosOnFirst()){
-         xspeed = 5;
-         yspeed = 0;
-         if (whatsOnSecond()){
-           xspeed = 0;
-           yspeed = -5;
-         }
-         if (iDontKnowsOnThird()){
-           xspeed = 0;
-           yspeed = 0;
-         }
-      }
-      else if (whatsOnSecond()){
-        yspeed = -5;
-        xspeed = 0;
-        if (iDontKnowsOnThird()){
-          yspeed = 0;
-          xspeed = -5;
-        }
-        if (isHome()){
-          xspeed = 0;
-          yspeed = 0;
-        }
-      }
-      else if (iDontKnowsOnThird()){
-        xspeed = -5;
-        yspeed = 0;
-        if (isHome()){
-          xspeed = 0;
-          yspeed = 5;
-        }
-        if (whosOnFirst()){
-          xspeed = 0;
-          yspeed = 0;
-        }
-      }
-      else{
-        yspeed = 5;
-        xspeed = 0;
-        if (whosOnFirst()){
-          yspeed = 0;
-          xspeed = 5;
-        }
-        if (whatsOnSecond()){
-          xspeed = 0;
-          yspeed = 0;
-        }
-      }
-    }
-    if (outcome.equals("Triple")){
-      if (whosOnFirst()){
-         xspeed = 5;
-         yspeed = 0;
-         if (whatsOnSecond()){
-           xspeed = 0;
-           yspeed = -5;
-         }
-         if (iDontKnowsOnThird()){
-           xspeed = -5;
-           yspeed = 0;
-         }
-         if (isHome()){
-           xspeed = 0;
-           yspeed = 0;
-         }
-      }
-      else if (whatsOnSecond()){
-        yspeed = -5;
-        xspeed = 0;
-        if (iDontKnowsOnThird()){
-          yspeed = 0;
-          xspeed = -5;
-        }
-        if (isHome()){
-          xspeed = 0;
-          yspeed = 5;
-        }
-        if (whosOnFirst()){
-          xspeed = 0;
-          yspeed = 0;
-        }
-      }
-      else if (iDontKnowsOnThird()){
-        xspeed = -5;
-        yspeed = 0;
-        if (isHome()){
-          xspeed = 0;
-          yspeed = 5;
-        }
-        if (whosOnFirst()){
-          xspeed = 5;
-          yspeed = 0;
-        }
-        if (whatsOnSecond()){
-          xspeed = 0;
-          yspeed = 0;
-        }
-      }
-      else{
-        yspeed = 5;
-        xspeed = 0;
-        if (whosOnFirst()){
-          yspeed = 0;
-          xspeed = 5;
-        }
-        if (whatsOnSecond()){
-          xspeed = 0;
-          yspeed = -5;
-        }
-      }
-    }
-  }
-  void startRunning(){
-    ellipse(x,y,2*r,2*r);
-  }
-  void setOutcome(){
-      if ((result > 231 && result < 282) || (result > 433 && result < 484)){
-        outcome = "Single";
-      }
-      if ((result >= 282 && result < 318) || (result >= 398 && result < 434)){
-        outcome = "Double";
-      }
-      if ((result >= 318 && result < 347) || (result >= 369 && result < 398)){
-        outcome = "Triple";
-      }
-      if (result >= 347 && result < 369){
-        outcome = "Home Run";
-      }
-      outcome = "Out";
-  }
-  boolean whosOnFirst(){
-    if (x == 10 && y == 410){
-      return true;
-    }
-    return false;
-  }
-  boolean whatsOnSecond(){
-    if (x == 410 && y == 410){
-      return true;
-    }
-    return false;
-  }
-  boolean iDontKnowsOnThird(){
-    if (x == 410 && y == 10){
-      return true;
-    }
-    return false;
-  }
-  boolean isHome(){
-    if (x == 10 && y == 10){
-      return true;
-    }
-    return false;
-  }
 }
