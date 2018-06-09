@@ -17,7 +17,7 @@ import processing.sound.*;
   
   float L;
   
- // SoundFile file;
+  SoundFile file;
   
   HitterMeter hMeter = new HitterMeter('a');
   HitterBall hBall = new HitterBall(hMeter);
@@ -27,17 +27,17 @@ import processing.sound.*;
   
   public void setup() {
     size(700,700);
-    //file = new SoundFile(this,"HitSound.mp3");
+   //// file = new SoundFile(this,"HitSound.mp3");
     //file.play();
     //file.amp(0.25);
     //L = file.duration();
   }
-  
+
     public void draw() {
       println(L);
       //NOT puke green background
         background(10,103,0);
-        //fill(0,139,0);
+        fill(0,139,0);
         textSize(50);
         text(frameRate, 20, 40);
         
@@ -125,6 +125,7 @@ import processing.sound.*;
         r.continueRunning();
        text( "Your Score is: " + getScore(),100,100);
     }
+
     public int checkCoordinates(int cor){
       /* Values:
       Strike : 0
@@ -232,6 +233,7 @@ import processing.sound.*;
     int x, y, s;
     int r;
     color c;
+    PImage sprite;
  
     public Pitch() {
       x = 0;
@@ -270,7 +272,9 @@ import processing.sound.*;
     }
     public void display() {
       fill(c);
-      ellipse(x, y, r * 2, r * 2);
+      sprite = loadImage("baseballSize.png");
+      image(sprite,x,y);
+      //ellipse(x, y, r * 2, r * 2);
     }
     public int keyPressed(){
       if (key == ' '){
