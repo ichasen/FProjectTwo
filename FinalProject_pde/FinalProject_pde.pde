@@ -1,6 +1,9 @@
-
 //Player player1,player2;
+
+import processing.sound.*;
+
   Pitch p = new Pitch();
+
   PitchMeter m = new PitchMeter();
   Runner r = new Runner();
   int hitboxCoordinates;
@@ -11,13 +14,27 @@
   int numStrikes = 0;
   int baseNumber;
   int score;
-  HitterMeter hMeter;
-  HitterBall hBall;
+  
+  float L;
+  
+ // SoundFile file;
+  
+  HitterMeter hMeter = new HitterMeter('a');
+  HitterBall hBall = new HitterBall(hMeter);
+  
+  
+  
+  
   public void setup() {
     size(700,700);
+    //file = new SoundFile(this,"HitSound.mp3");
+    //file.play();
+    //file.amp(0.25);
+    //L = file.duration();
   }
   
     public void draw() {
+      println(L);
       //NOT puke green background
         background(10,103,0);
         //fill(0,139,0);
@@ -52,6 +69,7 @@
         m.throwPitch();
         m.getMoving();
         p.throwPitch();
+        hBall.display();
         meterCoordinates = m.keyPressed();
         int ans = checkPitchCors(meterCoordinates);
         
