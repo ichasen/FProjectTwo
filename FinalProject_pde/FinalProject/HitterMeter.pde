@@ -192,4 +192,5 @@ public class HitterMeter{
                 setSpeed(50);
             }
     }
+      
 }
