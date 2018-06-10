@@ -98,13 +98,67 @@ public class Pitcher{
   
   //Various pitches
   
+  //Stops in its tracks because too weak
   public void doPitchWeak(){
+    int speed = 5;
+    int x = 200;
+    int y = 300;
+    fill(255);
+    ellipse(x,y,20,20);
+    while (y < 401){
+      y += speed;
+    }
   }
   public void doPitchNormal(){
+    int xSpeed = 0;
+    int ySpeed = 20;
+    int x = 200;
+    int y = 300;
+    fill(255);
+    ellipse(x,y,20,20);
+    while (y < 500){
+      y += speed; 
+    }
+    ySpeed *= -1;
+    while (y > 0){
+      xSpeed += 1;
+      x += xSpeed;
+      y += ySpeed;
+    }    
   }
   public void doPitchGolden(){
+     int xSpeed = 0;
+    int ySpeed = 50;
+    int x = 200;
+    int y = 300;
+    fill(255);
+    ellipse(x,y,20,20);
+    while (y < 500){
+      y += speed; 
+    }
+    ySpeed *= -2;
+    while (y > 0){
+      xSpeed += 1;
+      x += xSpeed;
+      y += ySpeed;
+    }    
   }
   public void doPitchHomerun(){
+    int xSpeed = 10;
+    int ySpeed = 60;
+    int x = 200;
+    int y = 300;
+    fill(255);
+    ellipse(x,y,20,20);
+    while (y < 500){
+      y += speed; 
+    }
+    ySpeed *= -2;
+    while (y > 0){
+      xSpeed += 1;
+      x += xSpeed;
+      y += ySpeed;
+    }    
   }
   
 }
