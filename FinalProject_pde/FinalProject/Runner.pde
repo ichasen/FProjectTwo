@@ -1,6 +1,6 @@
-/*public class Runner{
+public class Runner{
   int x,y,r,xspeed,yspeed;
-  int result = p.keyPressed();
+  int result = pMeter.keyPressed();
   String outcome;
   public Runner(){
     x = 10;
@@ -20,90 +20,55 @@
   void setOutcome(){
       if ((result > 231 && result < 282) || (result > 433 && result < 484)){
         outcome = "Single";
+        runToFirst();
       }
       if ((result >= 282 && result < 318) || (result >= 398 && result < 434)){
         outcome = "Double";
+        runToSecond();
       }
       if ((result >= 318 && result < 347) || (result >= 369 && result < 398)){
         outcome = "Triple";
+        runToThird();
       }
       if (result >= 347 && result < 369){
         outcome = "Home Run";
       }
       outcome = "Out";
   }
-  boolean isFirst(){
+  void runToFirst(){
+    xspeed = 0;
+    yspeed = 20;
     if (x == 10 && y == 410){
-      return true;
+      yspeed = 0;
+      xspeed = 0;
     }
-    return false;
   }
-  boolean isSecond(){
+  void runToSecond(){
+    xspeed = 0;
+    yspeed = 20;
+    if (x == 10 && y == 410){
+      yspeed = 0;
+      xspeed = 20;
+    }
     if (x == 410 && y == 410){
-      return true;
+      yspeed = 0;
+      xspeed = 0;
     }
-    return false;
   }
-  boolean isThird(){
+  void runToThird(){
+    xspeed = 0;
+    yspeed = 20;
+    if (x == 10 && y == 410){
+      yspeed = 0;
+      xspeed = 20;
+    }
+    if (x == 410 && y == 410){
+      yspeed = -20;
+      xspeed = 0;
+    }
     if (x == 410 && y == 10){
-      return true;
-    }
-    return false;
-  }
-  boolean isHome(){
-    if (x == 10 && y == 10){
-      return true;
-    }
-    return false;
-  }
-  void continueRunning(){
-    if (isFirst()){
-      xspeed = 5;
       yspeed = 0;
-    }
-    if (isSecond()){
-      yspeed = -5;
-      xspeed = 0;
-    }
-    if (isThird()){
-      xspeed = -5;
-      yspeed = 0;
-    }
-    if (isHome()){
-      yspeed = 5;
       xspeed = 0;
     }
   }
-  void setSpeed(int x,int y){
-    xspeed = x;
-    yspeed = y;
-  }
-  void doTheHitting(){
-    if (outcome.equals("Single")){
-      continueRunning();
-      if (x == 10 && y == 410){
-        setSpeed(0,0);
-      }
-    }
-    if (outcome.equals("Double")){
-      continueRunning();
-      if (x == 410 && y == 410){
-        setSpeed(0,0);
-      }
-    }
-    if (outcome.equals("Triple")){
-      continueRunning();
-      if (x == 410 && y == 10){
-        setSpeed(0,0);
-      }
-    }
-    if (outcome.equals("Home Run")){
-      continueRunning();
-      if (x == 10 && y == 10){
-        setSpeed(0,0);
-      }
-    }
-  }
-    
 }
-*/

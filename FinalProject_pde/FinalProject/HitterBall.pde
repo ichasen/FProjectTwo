@@ -13,6 +13,9 @@ public class HitterBall{
     c = color(255);
     speed = meter.getSpeed();
   }
+  int getx(){
+    return x;
+  }
   
   public void setPitchDone(){
     pitchDone = !pitchDone;
