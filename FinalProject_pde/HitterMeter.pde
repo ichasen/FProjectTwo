@@ -132,6 +132,22 @@ public class HitterMeter{
     return 4; //Homerun!
   }
   
+  public String resultMessage(int x){
+    if (x == 1){
+      return "Single!";
+    }
+    if (x == 2){
+      return "Double!";
+    }
+    if (x == 3){
+      return "Triple!";
+    }
+    if (x == 4){
+      return "Home Run!";
+    }
+    return "Strike!";
+  }
+  
   public boolean isWithin(float[] data, int x){
     return (data[0] <= x && data[1] >= x);
   }
