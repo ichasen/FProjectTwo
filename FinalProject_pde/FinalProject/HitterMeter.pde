@@ -175,9 +175,7 @@ public class HitterMeter{
   public boolean isWithin(float[] data, int x){
     return (data[0] <= x && data[1] >= x);
   }
-  void newSpeed(){
-      int ans = pMeter.keyPressed();
-       if (isKeyPressed()){
+  void newSpeed(int ans){
          if (ans == 0){
                 setSpeed(10);
             }
@@ -193,6 +191,5 @@ public class HitterMeter{
             if (ans == 4){
                 setSpeed(50);
             }
-        }
     }
 }
