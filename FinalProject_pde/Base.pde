@@ -3,7 +3,7 @@ public class Base{
   int x,y;
   int baseNum;
   color c;
-  public Base(int _baseNum, float _x, float _y){
+  public Base(int _baseNum, int _x, int _y){
     c = color(255);
     x = _x;
     y = _y;
