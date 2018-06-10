@@ -22,6 +22,10 @@ public class HitterBall{
     x += speed;
     checkWalls();
   }
+  public void throwPitch(int speed){
+    x += speed;
+    checkWalls();
+  }
   
   public void checkWalls(){
     if ((x >= 600) || (x <= 0)){
@@ -75,5 +79,6 @@ public class HitterBall{
          if (ans == 4){
            setSpeed(50);
         }
+        throwPitch(speed);
   }
 }
