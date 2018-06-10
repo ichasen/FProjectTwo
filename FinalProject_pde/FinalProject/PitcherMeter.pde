@@ -14,7 +14,7 @@ public class PitchMeter{
   final float[] strongCoors = {501,600};
   
   public PitchMeter(){
-    x = 625;
+    x = 650;
     ballC = color(255,165,0); //Orange
   }
   public void throwPitch(){
