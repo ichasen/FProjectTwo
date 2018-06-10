@@ -58,4 +58,22 @@ public class HitterBall{
   public void setSpeed(int newSpeed){
     speed = newSpeed;
   }
+  
+   public void newSpeed(int ans){
+         if (ans == 0){
+           setSpeed(10);
+         }
+         if (ans == 1){
+           setSpeed(20);
+         }
+         if (ans == 2){
+           setSpeed(30);
+         }
+         if (ans == 3){
+           setSpeed(40);
+         }
+         if (ans == 4){
+           setSpeed(50);
+        }
+  }
 }
