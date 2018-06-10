@@ -35,18 +35,28 @@ public void draw(){
     bases[i].display();
   }
   int x = -1;
+  int speed = 0;
   if (pMeter.isKeyPressed()){
     x = pMeter.calcPitch(pMeter.keyPressed());
     System.out.println(pMeter.keyPressed());
     System.out.println(x);
-    hBall.newSpeed(x);
-  }
 
+    if (x == 1){
+      speed = 60;
+    }
+    if (x == 0 || x == 3){
+      speed = 30;
+    }
+    if (x == 2){
+      speed = 120;
+    }
+  }
+  hBall.throwPitch(speed);
   hMeter.display();
+  hBall.display();
   pMeter.display();
   pitcher.display();
-  hBall.display();
-  hBall.throwPitch();
+
   ball.display(); 
 //resultBox.display();
   //resultBox.displayNorm();
