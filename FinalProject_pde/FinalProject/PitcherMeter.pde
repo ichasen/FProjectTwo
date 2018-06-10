@@ -63,17 +63,17 @@ public class PitchMeter{
      throwPitch();
   }
   
-  public String calcPitch(int y){
+  public int calcPitch(int y){
     if (isWeak(y)){
-      return "weak";
+      return 0;
     }
     if (isRegular(y)){
-      return "reg";
+      return 1;
     }
     if (isGolden(y)){
-      return "gold";
+      return 2;
     }
-    return "strong";
+    return 3;
   }
 
   public boolean isKeyPressed(){
