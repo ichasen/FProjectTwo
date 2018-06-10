@@ -1,14 +1,21 @@
+import processing.sound.*;
 public class HitterBall{
   int x, y, speed;
   int r;
   color c;
-  
+  PImage sprite;
+  boolean pitchDone = false;
+
   public HitterBall(HitterMeter meter){
     x = 0;
-    y = 625;
+    y = 600;
     r = 50;
     c = color(255);
     speed = meter.getSpeed();
+  }
+  
+  public void setPitchDone(){
+    pitchDone = !pitchDone;
   }
   
   public void throwPitch(){
@@ -17,26 +24,38 @@ public class HitterBall{
   }
   
   public void checkWalls(){
-    if ((x >= 700) || (x <= 0)){
+    if ((x >= 600) || (x <= 0)){
       speed *= -1;
     }
   }
   
   public void display(){
     fill(c);
-    ellipse(x,y,100,100);
+    sprite = loadImage("baseballSize.png");
+    image(sprite,x,y);
   }
   
   public int keyPressed(){
+    if (!pitchDone){
+      //return -1; //Not your turn!
+    }
     if (key == ' '){
-      speed = 0;
+      stopPitch();
+      drawLine(x);
       return x;
     }
     return -1;
+  }
+  
+  public void drawLine(int x){
+    fill(255,140,0); //Dark orange
+    rect(x,600,5,100);
+  }
+  public void stopPitch(){
+    speed = 0;
   }
   
   public void setSpeed(int newSpeed){
     speed = newSpeed;
   }
 }
-  
