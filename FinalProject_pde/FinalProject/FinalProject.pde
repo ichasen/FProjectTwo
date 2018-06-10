@@ -37,13 +37,10 @@ public void draw(){
   x = pMeter.keyPressed();
   int ans = checkCoordinates(i);
   hMeter.display();
-<<<<<<< HEAD
   hMeter.newSpeed(ans);
-=======
   if (pMeter.isKeyPressed()){
     hMeter.newSpeed(pMeter.keyPressed());
   }
->>>>>>> 793b1955f8b3a016cada94276aedb761d4337376
   pMeter.display();
   pitcher.display();
   hBall.display();
