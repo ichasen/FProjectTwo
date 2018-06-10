@@ -4,7 +4,7 @@ import processing.sound.*;
 public class PitchMeter{
   
   int x, y;
-  int speed;
+  int speed = 10;
   
   color ballC;
    
@@ -20,6 +20,7 @@ public class PitchMeter{
   public void throwPitch(){
       y += speed;
       checkWalls();
+      //System.out.println("Hello.");
   }
    
   public void checkWalls(){
@@ -27,23 +28,20 @@ public class PitchMeter{
       speed *= -1;
       y = 75;
     }
-    if (y > 625){
+    if (y > 600){
       speed *= -1;
-      y = 625;
+      y = 600;
     }
   }
   
   
   public void display(){
-      fill(ballC);
-      ellipse(x, y, 50, 50);
+
      fill(255);
-     
     //Pitch ball 
     ellipse(200,200,20,20);
     int i = 200;
-    
-      throwPitch();
+   
        //WeakCoors
        fill(255,255,0); //Yellow
        rect(600,0,100,300);
@@ -59,6 +57,10 @@ public class PitchMeter{
     //Too strong coors
        fill(255,0,0);
        rect(600,501,100,100);
+     
+          fill(ballC);
+     ellipse(x, y, 50, 50);
+     throwPitch();
   }
   
   public String calcPitch(int y){
