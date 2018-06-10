@@ -23,7 +23,7 @@ public class HitterMeter{
   final float[][] bSingleCoors = {{176,210},{491,525}};
   final float[][] bDoubleCoors = {{211,245},{456,490}};
   final float[][] bTripleCoors = {{246,280},{421,455}};
-  final float[][] bHomerunCoors = {{281,520}};
+  final float[][] bHomerunCoors = {{281,420}};
   
   //Average hitter:
   final float[][] aStrikeCoors = {{0,231},{469,700}}; 
@@ -48,7 +48,7 @@ public class HitterMeter{
       singleLength = 35;
       doubleLength = 35;
       tripleLength = 35;
-      homerunLength = 170;
+      homerunLength = 85;
     }
     //Average hitter
     if (hitterIdentity == 'a'){
@@ -65,8 +65,27 @@ public class HitterMeter{
       homerunLength = 25;
     }
   }
-  
+  public color calcBatterColor(){
+    //Possible colors: Light, dark, tan, green
+    Random randPaul = new Random();
+    int pitcherCol = randPaul.nextInt(4);
+    color pitcherColor = color(234,100,89); //Zoidberg colors; Hopefully we don't know of its existence 
+    if (pitcherCol == 0){
+      pitcherColor = color(255,218,185); //Peach
+    }
+    if (pitcherCol == 1){
+      pitcherColor = color(98,16,16); //Dark Brown
+    }
+    if (pitcherCol == 2){
+      pitcherColor = color(205,175,149); //Tan
+    }
+    if (pitcherCol >= 3){
+      pitcherColor = color(0,255,0); //Alien
+    }
+    return pitcherColor;
+  }
   public void display(){
+    
     for (int i = 0; i < 2; i++){
     //Strike
     fill(255,0,0);
@@ -91,6 +110,11 @@ public class HitterMeter{
     fill(212,175,55);
     rect(strikeLength + singleLength + doubleLength + tripleLength,600,homerunLength,100);
     }
+    
+    //The batter
+    fill(calcBatterColor());
+    ellipse(200,450,50,50);
+    
   }
   
   public boolean isKeyPressed(){
