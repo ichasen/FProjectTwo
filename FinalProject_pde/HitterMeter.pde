@@ -1,6 +1,5 @@
-
 public class HitterMeter{
-  
+   
   char identity;
   
   //Length of each bound, depending on the type of hitter.
@@ -91,16 +90,18 @@ public class HitterMeter{
     
     fill(212,175,55);
     rect(strikeLength + singleLength + doubleLength + tripleLength,600,homerunLength,100);
-    
-   
+    }
   }
-}
+  
+  public boolean isKeyPressed(){
+    return (keyPressed() > -1);
+  }
   
   public int keyPressed(){
     if (key == ' '){
       speed = 0;
     }
-    return 0;
+    return -1;
   }
   
   public void setSpeed(int newSpeed){
@@ -111,5 +112,27 @@ public class HitterMeter{
   }
   public int getSpeed(){
     return speed;
+  }
+  
+  public int calcPitchCors(int x){
+    for (int i = 0; i < 5; i++){
+      if ( (isWithin(strikeCoors[0],x) ) || (isWithin(strikeCoors[1],x) ) ){
+        return 0; //Strike
+      }
+      if ( (isWithin(singleCoors[0],x) ) || (isWithin(singleCoors[1],x) ) ){
+        return 1; //Single
+      }
+      if ( (isWithin(doubleCoors[0],x) ) || (isWithin(doubleCoors[1],x) ) ){
+        return 2; //Double
+      }
+      if ( (isWithin(tripleCoors[0],x) ) || (isWithin(tripleCoors[1],x) ) ){
+        return 3; //Triple
+      }
+    }
+    return 4; //Homerun!
+  }
+  
+  public boolean isWithin(float[] data, int x){
+    return (data[0] <= x && data[1] >= x);
   }
 }
