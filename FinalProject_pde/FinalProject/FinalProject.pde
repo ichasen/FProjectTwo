@@ -34,7 +34,9 @@ public void draw(){
     bases[i].display();
   }
   hMeter.display();
-  hMeter.newSpeed(pMeter.keyPressed());
+  if (pMeter.isKeyPressed()){
+    hMeter.newSpeed(pMeter.keyPressed());
+  }
   pMeter.display();
   pitcher.display();
   hBall.display();
