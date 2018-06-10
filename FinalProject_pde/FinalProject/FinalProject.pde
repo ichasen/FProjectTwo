@@ -6,6 +6,7 @@ Runner r;
 Pitcher pitcher;
 PitchMeter pMeter;
 ThrowedBall ball;
+DefenseMeter d;
 
 int i = 0;
 
@@ -25,6 +26,7 @@ public void setup(){
   ball = new ThrowedBall();
   pitcher = new Pitcher();
   r = new Runner();
+  d = new DefenseMeter();
 }
 
 public void draw(){
@@ -71,7 +73,7 @@ public void draw(){
    result = hMeter.calcPitchCors(hBall.keyPressed());
    System.out.println(hBall.keyPressed());
    fill(255);
-   text("Your Hit: " + hMeter.resultMessage(result),250,250);
+   text(hMeter.resultMessage(result),250,250);
    if (i < 25){
      ball.animate();
      i++;
@@ -79,8 +81,36 @@ public void draw(){
    else{
      ball.animate(result);
    }
+   if (hMeter.resultMessage(result).equals("Strike!")){
+     d.setSpeed(3);
+   }
+   if (hMeter.resultMessage(result).equals("Single!")){
+     d.setSpeed(6);
+   }
+   if (hMeter.resultMessage(result).equals("Double!")){
+     d.setSpeed(9);
+   }
+   if (hMeter.resultMessage(result).equals("Triple!")){
+     d.setSpeed(12);
+   }
+   if (hMeter.resultMessage(result).equals("Home Run!")){
+     d.setSpeed(15);
+   }
   // ball.animate(result);
   }
+  if (d.gety() > 650){
+    d.setSpeed(0);
+  }
+  if (d.pressKey() != -1){
+    if (d.pressKey() >= 275 && d.pressKey() <= 425){
+      text("Defense wins!",300,300);
+    }
+    else{
+      text("Hitter wins!",300,300);
+    }
+  }
+  d.display();
+  d.playDefense();
 }
 // 
 //resultBox.newDisplay(result);
