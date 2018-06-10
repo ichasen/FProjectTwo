@@ -84,6 +84,7 @@ public class HitterMeter{
     }
     return pitcherColor;
   }
+  color batterColor = calcBatterColor();
   public void display(){
     
     for (int i = 0; i < 2; i++){
@@ -112,7 +113,7 @@ public class HitterMeter{
     }
     
     //The batter
-    fill(calcBatterColor());
+    fill(batterColor);
     ellipse(200,450,50,50);
     
   }
