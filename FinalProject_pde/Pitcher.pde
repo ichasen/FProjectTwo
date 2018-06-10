@@ -1,4 +1,7 @@
-public abstract class Pitcher{
+
+import java.util.*;
+
+public class Pitcher{
   
   /* Each pitcher has their own type of pitch:
   
@@ -10,10 +13,10 @@ public abstract class Pitcher{
   //Speed
   private int speed; //How fast the pitch will be considered.
   //Starting and ending Y coordinates for the zones.  {WeakZone, regularZone, goldenZone, tooStrongZone}
-  private int[] weakZone;
-  private int[] regularZone;
-  private int[] goldenZone;
-  private int[] tooStrongZone;
+  private int[] weakZone = {0,300};
+  private int[] regularZone = {301,450};
+  private int[] goldenZone = {451, 500};
+  private int[] strongZone = {501,600};
   
   //PitcherType: What the game uses to identify pitcher.
   //Name: Public name of Pitcher
@@ -22,9 +25,34 @@ public abstract class Pitcher{
   
   //What color the pitcher's skin is:
   private color pitcherColor;
+
+  public void doPitch(int y /*Arg is the PitchMeter's keyPressed() */){
+    if (isWeak(y)){
+      doPitchWeak();
+    }
+    if (isRegular(y)){
+      doPitchReg();
+    }
+    if (isGolden(y)){
+      doPitchGolden();
+    }
+    if (isStrong(y)){
+      doPitchStrong();
+    }
+  }
   
-  public abstract void doPitch();
-  
+  boolean isWeak(int y){
+    return (y >= weakZone[0] && y <= weakZone[1]);
+  }
+  boolean isRegular(int y){
+     return (y >= regularZone[0] && y <= regularZone[1]);
+  }
+  boolean isGolden(int y){
+     return (y >= goldenZone[0] && y <= goldenZone[1]);
+  }
+  boolean isStrong(int y){
+    return (y >= strongZone[0] && y <= strongZone[1]); 
+  }
   public void setName(String name){
     this.name = name;
   }
@@ -44,19 +72,40 @@ public abstract class Pitcher{
     this.speed = speed;
   }
   
-  public void setCoors(int[] wCoors, int[] rCoors, int[] gCoors, int[] sCoors){
-    for (int i = 0; i < 2; i++){
-      weakZone[i] = wCoors[i];
-      regularZone[i] = rCoors[i];
-      goldenZone[i] = gCoors[i];
-      tooStrongZone[i] = sCoors[i];
-    }
-  }
-  
   public char getPitcherType(){
     return pitcherType;
   }
+  
+  public void display(){
+    Random randPaul = new Random();
+    int pitcherCol = randPaul.nextInt(4);
+    if (pitcherCol == 0){
+      fill(255,218,185); //Peach
+    }
+    if (pitcherCol == 1){
+      fill(98,16,16); //Dark Brown
+    }
+    if (pitcherCol == 2){
+      fill(205,175,149); //Tan
+    }
+    if (pitcherCol >= 3){
+      fill(0,255,0); //Alien
+    }
+    rect(200,200,50,50);
+    fill(255);
+    rect(200,300,20,20); //PitcherBall
+  }
+  
+  //Various pitches
+  
+  public void doPitchWeak(){
+  }
+  public void doPitchNormal(){
+  }
+  public void doPitchGolden(){
+  }
+  public void doPitchHomerun(){
+  }
+  
 }
     
-  
-  
