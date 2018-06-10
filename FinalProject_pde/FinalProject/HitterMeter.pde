@@ -138,7 +138,6 @@ public class HitterMeter{
   public int getSpeed(){
     return speed;
   }
-  
   public int calcPitchCors(int x){
     for (int i = 0; i < 5; i++){
       if ( (isWithin(strikeCoors[0],x) ) || (isWithin(strikeCoors[1],x) ) ){
@@ -176,4 +175,24 @@ public class HitterMeter{
   public boolean isWithin(float[] data, int x){
     return (data[0] <= x && data[1] >= x);
   }
+  void newSpeed(){
+      int ans = pMeter.keyPressed();
+       if (isKeyPressed()){
+         if (ans == 0){
+                setSpeed(10);
+            }
+            if (ans == 1){
+                setSpeed(20);
+            }
+            if (ans == 2){
+                setSpeed(30);
+            }
+            if (ans == 3){
+                setSpeed(40);
+            }
+            if (ans == 4){
+                setSpeed(50);
+            }
+        }
+    }
 }
