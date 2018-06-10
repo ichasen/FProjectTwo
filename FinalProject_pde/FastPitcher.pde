@@ -1,4 +1,4 @@
-public class FastPitcher extends Pitcher{
+/*public class FastPitcher extends Pitcher{
       
   int[] weakCoors = {0,150};
   int[] normalCoors = {151, 400};
@@ -16,3 +16,4 @@ public class FastPitcher extends Pitcher{
   }
 
 }
+*/

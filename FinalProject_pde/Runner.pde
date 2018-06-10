@@ -1,4 +1,4 @@
-public class Runner{
+/*public class Runner{
   int x,y,r,xspeed,yspeed;
   int result = p.keyPressed();
   String outcome;
@@ -106,3 +106,4 @@ public class Runner{
   }
     
 }
+*/

@@ -1,8 +1,8 @@
-HitterMeter hMeter;
+/*HitterMeter hMeter;
 HitterBall hBall;
 //ResultBox resultBox = new ResultBox(250,50);
 Base[] bases = new Base[4];
-Runner r;
+//Runner r;
 Pitcher pitcher;
 PitchMeter pMeter;
 ThrowedBall ball;
@@ -111,6 +111,3 @@ public class ResultBox{
     
 
   */
-
-
-

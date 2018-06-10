@@ -1,4 +1,4 @@
-public class CurvePitcher extends Pitcher{
+/*public class CurvePitcher extends Pitcher{
       
   int[] weakCoors = {0,350};
   int[] normalCoors = {351, 450};
@@ -6,7 +6,7 @@ public class CurvePitcher extends Pitcher{
   int[] strongCoors = {501, 700};
   
   public CurvePitcher(){
-    setCoors(weakCoors, normalCoors, goldenCoors, strongCoors);
+    setColor(weakCoors, normalCoors, goldenCoors, strongCoors);
     setColor(139, 69, 19); //Brown
     setSpeed(35);
     setPitcherType('c');
@@ -21,3 +21,4 @@ public class CurvePitcher extends Pitcher{
   }
   
 }
+*/

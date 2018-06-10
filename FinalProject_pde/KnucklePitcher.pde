@@ -1,4 +1,4 @@
-public class KnucklePitcher extends Pitcher{
+/*public class KnucklePitcher extends Pitcher{
       
   int[] weakCoors = {0,400};
   int[] normalCoors = {401, 600};
@@ -18,3 +18,4 @@ public class KnucklePitcher extends Pitcher{
   }
   
 }
+*/
