@@ -15,7 +15,7 @@ int x;
 
 public void setup(){
   size(900,700);
-  hMeter = new HitterMeter('a');
+  hMeter = new HitterMeter('b');
   hBall = new HitterBall(hMeter);
   pMeter = new PitchMeter();
   bases[0] = new Base(1,410,410); //Southeast
@@ -34,13 +34,15 @@ public void draw(){
   for (int i = 0; i < 4; i++){
     bases[i].display();
   }
-  x = pMeter.keyPressed();
-  int ans = checkCoordinates(i);
-  hMeter.display();
-  hMeter.newSpeed(ans);
+  int x = -1;
   if (pMeter.isKeyPressed()){
-    hMeter.newSpeed(pMeter.keyPressed());
+    x = pMeter.calcPitch(pMeter.keyPressed());
+    System.out.println(pMeter.keyPressed());
+    System.out.println(x);
+    hBall.newSpeed(x);
   }
+
+  hMeter.display();
   pMeter.display();
   pitcher.display();
   hBall.display();
@@ -64,30 +66,6 @@ public void draw(){
   // ball.animate(result);
   }
 }
-public int checkCoordinates(int cor){
-      /* Values:
-      Strike : 0
-      Single : 1
-      Double : 2
-      Triple : 3
-      Homerun : 4
-      */
-      if ((cor > 231 && cor < 282) || (cor > 433 && cor < 484)){
-        return 1;
-      }
-      if ((cor >= 282 && cor < 318) || (cor >= 398 && cor < 434)){
-        return 2;
-      }
-      if ((cor >= 318 && cor < 347) || (cor >= 369 && cor < 398)){
-        return 3;
-      }
-      if (cor >= 347 && cor < 369){
-        return 4;
-      }
-      return 0;
-     
-      }
-
 // 
 //resultBox.newDisplay(result);
 /*
