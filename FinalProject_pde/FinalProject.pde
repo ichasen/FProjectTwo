@@ -1,10 +1,13 @@
 HitterMeter hMeter;
 HitterBall hBall;
-ResultBox resultBox = new ResultBox(250,50);
+//ResultBox resultBox = new ResultBox(250,50);
 Base[] bases = new Base[4];
 Runner r;
 Pitcher pitcher;
 PitchMeter pMeter;
+ThrowedBall ball;
+
+int i = 0;
 
 int player1Score;
 int player2Score;
@@ -18,6 +21,7 @@ public void setup(){
   bases[1] = new Base(2,410,10); //Northeast
   bases[2] = new Base(3,10,10); //Northwest
   bases[3] = new Base(4,10,410); //Southwest
+  ball = new ThrowedBall();
 }
 
 public void draw(){
@@ -32,25 +36,28 @@ public void draw(){
   //pitcher.display();
   hBall.display();
   hBall.throwPitch();
-resultBox.display();
+  ball.display(); 
+//resultBox.display();
   //resultBox.displayNorm();
   int result = -1;
   if (hBall.keyPressed() != -1){
    result = hMeter.calcPitchCors(hBall.keyPressed());
    System.out.println(hBall.keyPressed());
    text("Your Hit: " + hMeter.resultMessage(result),250,250);
+   if (i < 25){
+     ball.animate();
+     i++;
+   }
+   else{
+     ball.animate(result);
+   }
+  // ball.animate(result);
   }
-  pMeter.throwPitch();
-  
-//  r.setOutcome();
- // r.doTheHitting();
-  //r.startRunning();
-  //r.running();
-  //r.continueRunning();
 }
-  
-//  resultBox.newDisplay(result);
 
+// 
+//resultBox.newDisplay(result);
+/*
 public class ResultBox{
   String result;
   int x, y;
@@ -96,11 +103,14 @@ public class ResultBox{
     text("Hi",50,0);
   }
   
+  public void drawStrike(){
+    fill(255,0,0);
+    text("X",750,50);
+  }
 }
     
 
-  
-  
-  
+  */
+
 
 
