@@ -28,16 +28,16 @@ public class Pitcher{
 
   public void doPitch(int y /*Arg is the PitchMeter's keyPressed() */){
     if (isWeak(y)){
-      doPitchWeak();
+   //   doPitchWeak();
     }
     if (isRegular(y)){
-      doPitchReg();
+    //  doPitchNormal();
     }
     if (isGolden(y)){
-      doPitchGolden();
+    //  doPitchGolden();
     }
     if (isStrong(y)){
-      doPitchStrong();
+    //  doPitchStrong();
     }
   }
   
@@ -79,6 +79,7 @@ public class Pitcher{
   public void display(){
     Random randPaul = new Random();
     int pitcherCol = randPaul.nextInt(4);
+    /*
     if (pitcherCol == 0){
       fill(255,218,185); //Peach
     }
@@ -91,13 +92,14 @@ public class Pitcher{
     if (pitcherCol >= 3){
       fill(0,255,0); //Alien
     }
+    */
     rect(200,200,50,50);
     fill(255);
     rect(200,300,20,20); //PitcherBall
   }
-  
+}
   //Various pitches
-  
+  /*
   //Stops in its tracks because too weak
   public void doPitchWeak(){
     int speed = 5;
@@ -143,7 +145,7 @@ public class Pitcher{
       y += ySpeed;
     }    
   }
-  public void doPitchHomerun(){
+  public void doPitchStrong(){
     int xSpeed = 10;
     int ySpeed = 60;
     int x = 200;
@@ -162,4 +164,5 @@ public class Pitcher{
   }
   
 }
+*/
     
