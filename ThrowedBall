@@ -1,0 +1,52 @@
+public class ThrowedBall{
+  int x, y;
+  int speed;
+  int yReflect;
+  int stopX;
+  
+  //Five outcomes:
+  /*
+  STRIKE
+  SINGLE
+  DOUBLE
+  TRIPLE
+  HOMERUN
+  */
+  
+  public ThrowedBall(int outcome){
+    x = 200;
+    y = 200;
+    stopY = 400;
+    if (outcome == 0){
+      speed = 10;
+      stopY = 800;
+      yReflect = 0;
+    }
+    if (outcome == 1){
+      speed = 10;
+      yReflect = -10;
+    }
+    if (outcome == 2){
+      speed = 20;
+      yReflect = -20;
+    }
+    if (outcome == 3){
+      speed = 25;
+      yReflect = -25;
+    }
+    if (outcome == 4){
+      speed = 30;
+      yReflect = -30;
+    }
+  }
+  
+  public void display(){
+    ellipse(x,y,20,20);
+    while (y != stopY){
+      y += speed;
+    }
+    while (y == stopY){
+      x += -1 * yReflect;
+      y += yReflect;
+    }
+}
