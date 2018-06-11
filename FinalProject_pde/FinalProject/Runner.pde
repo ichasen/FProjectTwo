@@ -1,3 +1,4 @@
+/*
 public class Runner{
   int x,y,r,xspeed,yspeed;
   int result = pMeter.keyPressed();
@@ -72,3 +73,4 @@ public class Runner{
     }
   }
 }
+*/

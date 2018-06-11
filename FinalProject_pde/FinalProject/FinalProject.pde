@@ -2,7 +2,6 @@ HitterMeter hMeter;
 HitterBall hBall;
 //ResultBox resultBox = new ResultBox(250,50);
 Base[] bases = new Base[4];
-Runner r;
 Pitcher pitcher;
 PitchMeter pMeter;
 ThrowedBall ball;
@@ -25,7 +24,6 @@ public void setup(){
   bases[3] = new Base(4,10,410); //Southwest
   ball = new ThrowedBall();
   pitcher = new Pitcher();
-  r = new Runner();
   d = new DefenseMeter();
 }
 
@@ -62,9 +60,6 @@ public void draw(){
   hBall.display();
   pMeter.display();
   pitcher.display();
-  r.setOutcome();
-  r.running();
-  r.startRunning();
   ball.display();
 //resultBox.display();
   //resultBox.displayNorm();
