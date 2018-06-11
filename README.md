@@ -27,3 +27,6 @@ Hitting meter is made to interact with the pitcher, allowing a basic skeleton of
 June 8 - 10
 The defense meter and and pitcher/ball sprites are made.  It is decided that the Hitter and Defense meters will not move back and forth in exchange for a lower overall speed.
 
+To run:
+Run FinalProject.pde in Processing.
+
